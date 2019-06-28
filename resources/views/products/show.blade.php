@@ -113,23 +113,6 @@
 
     </div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript">
-    $('form_review').on('submit',function(e){
-        e.preventDefault();
-        var productId = $('#product_id').val();
-        var desc = tinyMCE.activeEditor.getContent();
-        var rating = $('input[name="rating"]:checked').val();
-        $.ajax({
-            type: "GET",
-            data: {id:productId, desction:desc, rating:rating},
-            url: "{{ route('products.show', ['id' => $product->id]) }}",
-            success: function(html){
-                $("review").html(html);
-            }
-        });
-    });
-</script>
 
 @endsection
 
